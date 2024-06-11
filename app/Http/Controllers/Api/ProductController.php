@@ -11,6 +11,11 @@ class ProductController extends Controller
 {
     //
 
+    public function product()
+    {
+        return response()->json(['message' => 'Product API'], 200);
+    }
+
     public function index(Request $request)
     {
 
