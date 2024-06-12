@@ -12,10 +12,9 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::get('/product', [ProductController::class, 'index']);
+
 Route::get('/product/{slug}', [ProductController::class, 'show']);
-
 Route::middleware([CheckLoginApiMiddleware::class])->group(function () {
-
 
 
 });
