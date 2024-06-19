@@ -11,19 +11,14 @@ class ProductController extends Controller
 {
     //
 
-    public function product()
-    {
-        return response()->json(['message' => 'Product API'], 200);
-    }
-
     public function index(Request $request)
     {
 
-        $products = Product::all();
-        // return ProductResource::collection($products);
+        $products = Product::with(['variantProducts.subVariantProducts'])->get();
+
         $json = [
-            'data' => $products,
-            "message" => "Success get all products"
+            'success' => true,
+            'data' => $products
         ];
 
         return response()->json($json, 200);
@@ -32,15 +27,15 @@ class ProductController extends Controller
     public function show(Request $request, $slug)
     {
 
-        $product = Product::where('slug', $slug)->first();
+        $product = Product::with(['variantProducts.subVariantProducts'])->where('slug', $slug)->first();
 
         if (!$product) {
             return response()->json(['message' => 'Product not found'], 404);
         }
 
         $json = [
-            'data' => $product,
-            "message" => "Success get product"
+            'success' => true,
+            'data' => $product
         ];
 
         return response()->json($json, 200);

@@ -83,6 +83,13 @@ class AuthController extends Controller
 
     }
 
+    public function user(Request $request)
+    {
+        return response()->json([
+            'success' => true,
+        ], 200);
+    }
+
     public function logout()
     {
         $removeToken = JWTAuth::invalidate(JWTAuth::getToken());

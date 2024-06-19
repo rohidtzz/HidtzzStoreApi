@@ -20,13 +20,19 @@ class CheckLoginApiMiddleware
         $token = $request->header('Authorization');
 
         if (!$token) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json([
+                'success' => false,
+                'error' => 'Unauthorized',
+            ], 401);
         }
 
         try {
-            $user = Auth::guard('api')->userOrFail();
+            $user = auth()->guard('api')->user();
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Unauthorized','message'=>"kik"], 401);
+            return response()->json([
+                'success' => false,
+                'error' => $e->getMessage(),
+            ], 401);
         }
 
         return $next($request);
