@@ -10,6 +10,7 @@ class ProductCategory extends Model
     use HasFactory;
     protected $gruarded = [];
 
+
     public function products()
     {
         return $this->hasMany(Product::class, 'category_id','id');
