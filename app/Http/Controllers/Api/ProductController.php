@@ -16,6 +16,13 @@ class ProductController extends Controller
 
         $products = Product::with(['variantProducts.subVariantProducts'])->get();
 
+        if(!$products)
+        {
+            return response()->json([
+                'success' => false,
+            ]);
+        }
+
         $json = [
             'success' => true,
             'data' => $products
@@ -30,7 +37,10 @@ class ProductController extends Controller
         $product = Product::with(['variantProducts.subVariantProducts'])->where('slug', $slug)->first();
 
         if (!$product) {
-            return response()->json(['message' => 'Product not found'], 404);
+            return response()->json([
+                'success' => false,
+                'message' => 'Product not found'
+            ], 404);
         }
 
         $json = [

@@ -18,8 +18,8 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::get('/product', [ProductController::class, 'index']);
 Route::get('/product/{slug}', [ProductController::class, 'show']);
 
-Route::get('/product/category/{slug}', [ProductCategoryController::class, 'show']);
-Route::get('/product/category', [ProductCategoryController::class, 'index']);
+Route::get('/category/{slug}/product', [ProductCategoryController::class, 'show']);
+Route::get('/category/product', [ProductCategoryController::class, 'index']);
 
 
 
