@@ -15,19 +15,19 @@ class VariantProductSeeder extends Seeder
     public function run(): void
     {
         VariantProduct::create([
-            'name' => 'Putih',
-            'price' => 125000,
-            'image' => 'polos.jpg',
+            'name' => 'biru pendek',
+            'price' => 5000,
+            'image' => '/product/variant/biru-pendek.jpg',
             'stock' => 10,
             'product_id' => 1
         ]);
 
         VariantProduct::create([
-            'name' => 'Hitam',
-            'price' => 120000,
-            'image' => 'hitam.jpg',
+            'name' => 'Merah',
+            'price' => 2000,
+            'image' => '/product/variant/merah-pendek.jpg',
             'stock' => 10,
-            'product_id' => 1
+            'product_id' => 5
         ]);
 
     }

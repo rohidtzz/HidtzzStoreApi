@@ -15,17 +15,17 @@ class SubVariantProductSeeder extends Seeder
     public function run(): void
     {
         SubVariantProduct::create([
-            'name' => 'S',
-            'price' => 125000,
+            'name' => 'L',
+            'price' => 10000,
             'stock' => 10,
             'variant_product_id' => 1
         ]);
 
         SubVariantProduct::create([
             'name' => 'M',
-            'price' => 120000,
+            'price' => 12000,
             'stock' => 10,
-            'variant_product_id' => 1
+            'variant_product_id' => 2
         ]);
     }
 }

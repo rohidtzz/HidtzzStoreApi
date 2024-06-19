@@ -44,7 +44,7 @@ class ProductSeeder extends Seeder
             <br>
             Happy Shopping!<br>
             LuckyWarehouse.',
-            'price' => 125000,
+            'price' => 100000,
             'thumbnail' => '/product/biru-dongker.jpg',
             // 'thumbnail' => 'baju1.png',
             'stock' => 350,
@@ -193,7 +193,7 @@ class ProductSeeder extends Seeder
             <br>
             Happy Shopping!<br>
             LuckyWarehouse.',
-            'price' => 120000,
+            'price' => 100000,
             'thumbnail' => '/product/merah-marun.jpg',
             'stock' => 350,
             'category_id' => 2,
