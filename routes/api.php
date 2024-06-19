@@ -16,10 +16,12 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 
 Route::get('/product', [ProductController::class, 'index']);
-
-Route::get('/category/product/{slug}', [ProductCategoryController::class, 'index']);
-
 Route::get('/product/{slug}', [ProductController::class, 'show']);
+
+Route::get('/product/category/{slug}', [ProductCategoryController::class, 'show']);
+Route::get('/product/category', [ProductCategoryController::class, 'index']);
+
+
 
 Route::middleware([CheckLoginApiMiddleware::class])->group(function () {
 

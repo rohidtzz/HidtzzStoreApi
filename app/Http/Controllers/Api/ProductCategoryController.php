@@ -10,10 +10,10 @@ class ProductCategoryController extends Controller
 {
     //
 
-    public function index($slug)
+    public function index()
     {
 
-        $productCategory = ProductCategory::with('products')->where('slug',$slug)->first();
+        $productCategory = ProductCategory::with('products.variantProducts.subVariantProducts')->get();
 
         if(!$productCategory)
         {
@@ -27,5 +27,22 @@ class ProductCategoryController extends Controller
             'data' => $productCategory
         ]);
 
+    }
+
+    public function show($slug)
+    {
+        $productCategory = ProductCategory::with('products.variantProducts.subVariantProducts')->where('slug',$slug)->first();
+
+        if(!$productCategory)
+        {
+            return response()->json([
+                'success' => false,
+            ]);
+        }
+
+        return response()->json([
+            'success' => true,
+            'data' => $productCategory
+        ]);
     }
 }
