@@ -14,7 +14,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
 
-        $products = Product::with(['variantProducts.subVariantProducts'])->get();
+        $products = Product::with(['variantProducts.subVariantProducts','category'])->get();
 
         if(!$products)
         {

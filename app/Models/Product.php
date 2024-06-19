@@ -11,6 +11,11 @@ class Product extends Model
 
     protected $guarded = [];
 
+    public function category()
+    {
+        return $this->belongsTo(ProductCategory::class, 'category_id', 'id');
+    }
+
     public function variantProducts()
     {
         return $this->hasMany(VariantProduct::class, 'product_id', 'id');
